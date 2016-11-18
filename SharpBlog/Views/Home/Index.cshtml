@@ -1,0 +1,14 @@
+﻿@using SharpBlog.Models
+@model List<Post>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Recent Posts</h2>
+
+<ul>
+    @foreach (Post post in Model)
+    {
+        <li>@Html.RouteLink(post.Title, "PostSingle", new { slug = post.Slug })</li>
+    }
+</ul>
