@@ -1,0 +1,3 @@
+@echo off
+echo Deploying posts...
+xcopy %DEPLOYMENT_SOURCE%\SharpBlog\Posts %DEPLOYMENT_TARGET%\Posts /Y
