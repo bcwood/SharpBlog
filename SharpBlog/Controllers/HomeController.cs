@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using SharpBlog.Models;
 using SharpBlog.Parsers;
 
 namespace SharpBlog.Controllers
@@ -8,23 +7,9 @@ namespace SharpBlog.Controllers
     {
         public ActionResult Index()
         {
-            var posts = MarkdownParser.ParseFiles(Server.MapPath("~/Posts"));
+            var posts = MarkdownParser.ParseFiles(Server.MapPath("~/Content/Posts"));
             
             return View(posts);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

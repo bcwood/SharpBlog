@@ -8,7 +8,7 @@ namespace SharpBlog.Controllers
     {
         public ActionResult Detail(string slug)
         {
-            Post post = MarkdownParser.ParseFile(Server.MapPath($"~/Posts/{slug}.md"));
+            Post post = MarkdownParser.ParseFile(Server.MapPath($"~/Content/Posts/{slug}.md"));
             return View(post);
         }
     }
