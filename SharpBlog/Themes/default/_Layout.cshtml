@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SharpBlog</title>
+    <link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="google-fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" media="all" />
+    <link rel="stylesheet" href="@Url.Content("~/Themes/default/css/style.min.css")"/>
+</head>
+<body>
+    <div id="secondary">
+        <div id="secondary-content" class="inner widget-area" role="complementary">
+
+            <header id="masthead" class="site-header" role="banner">
+                <div class="site-branding">
+
+                    <a class="site-logo" href="https://bcwood.me/" rel="home">
+                        <img src="//bcwood.me/wp-content/uploads/2015/12/cropped-brandon.jpg" width="128" height="128" alt="Brandon Wood">
+                    </a>
+
+                    <h1 class="site-title"><a href="https://bcwood.me/" rel="home">Brandon Wood</a></h1>
+                </div><!-- .site-branding -->
+            </header><!-- #masthead -->
+            
+            <aside class="widget search">
+                <form id="searchform" method="get" action="//bcwood.me/">
+                    <input type="text" name="s" id="s" placeholder="Search" />
+                </form>
+            </aside>
+
+
+            <aside class="widget social-icons">
+                <ul>
+                    <li class="subscribe">
+                        <a href="http://bcwood.me/feed">
+                            <i class="fa fa-rss"></i> Subscribe
+                        </a>
+                    </li>
+                    <li class="github">
+                        <a href="https://github.com/bcwood">
+                            <i class="fa fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    <li class="twitter">
+                        <a href="https://twitter.com/iambcwood">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                    </li>
+                    <li class="facebook">
+                        <a href="https://facebook.com/bcwood">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                    </li>
+                    <li class="linkedin">
+                        <a href="https://linkedin.com/in/bcwood">
+                            <i class="fa fa-linkedin"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li class="contact">
+                        <a href="mailto:hello@bcwood.me">
+                            <i class="fa fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <footer id="colophon" class="site-footer" role="contentinfo">
+                <div class="site-info">
+                    <section class="copyright">
+                        &copy; @DateTime.Now.Year <a href="https://bcwood.me/" rel="home">Brandon Wood</a>
+                    </section>
+                    @*<section class="poweredby">
+                        <i class="fa fa-wordpress"></i> <a href="https://wordpress.org/">WordPress</a> -
+                        <a href="https://github.com/bcwood/StayPuft-WP">StayPuft theme</a>
+                    </section>*@
+                </div><!-- .site-info -->
+            </footer><!-- #colophon -->
+        </div><!-- #secondary-content -->
+    </div><!-- #secondary -->
+
+    <main id="main" class="site-main" role="main">
+        <div class="site-content">
+            @RenderBody()
+        </div><!-- .site-content -->
+    </main>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

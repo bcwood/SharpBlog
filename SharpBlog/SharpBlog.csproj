@@ -163,12 +163,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\default\css\bootstrap.css" />
-    <Content Include="Themes\default\css\bootstrap.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Themes\default\css\Site.css" />
     <Content Include="Content\Posts\hello-world.md" />
     <Content Include="Content\Pages\about.md" />
+    <Content Include="Themes\default\css\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="Themes\default\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -176,7 +179,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Themes\default\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Posts\Detail.cshtml" />
   </ItemGroup>
@@ -185,6 +188,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Themes\default\css\_staypuft.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Themes\default\css\_underscore.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Themes\default\css\_normalize.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Themes\default\css\style.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Themes\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,8 +1,23 @@
 ﻿@model SharpBlog.Models.Post
 @{
     ViewBag.Title = Model.Title;
+    var post = Model;
 }
 
-<h2>@Model.Title</h2>
+<article class="post type-post status-publish format-standard hentry category-uncategorized tag-flappy-bird tag-hour-of-code tag-minecraft tag-star-wars">
+    <header class="entry-header">
+        <h1 class="entry-title">@Html.RouteLink(post.Title, "PostSingle", new { slug = post.Slug }, new { rel = "bookmark" })</h1>
+        <div class="entry-meta">
+            <i class="fa fa-calendar"></i> <span class="posted-on"><time class="entry-date published" datetime="@post.Date.Value.ToString()">@post.Date.Value.ToString("MMMM dd, yyyy")</time></span>
+            <br /><i class="fa fa-tag"></i> <span class="tags-links">@Html.Raw(string.Join(" &middot; ", post.Tags))</span>
+        </div><!-- .entry-meta -->
+    </header><!-- .entry-header -->
 
-@Html.Raw(Model.Body)
+    <div class="entry-content">
+        @Html.Raw(post.Body)
+    </div><!-- .entry-content -->
+
+    <footer class="entry-footer">
+        <i class="fa fa-comment-o"></i> <span class="comments-link"><a href="#respond">0 Comments</a></span>
+    </footer><!-- .entry-footer -->
+</article><!-- #post-10 -->
