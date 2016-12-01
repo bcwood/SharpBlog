@@ -153,7 +153,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,10 +165,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Posts\hello-world.md" />
     <Content Include="Content\Pages\about.md" />
-    <Content Include="Themes\default\css\style.css">
+    <Content Include="Themes\staypuft\css\style.css">
       <DependentUpon>style.scss</DependentUpon>
     </Content>
-    <Content Include="Themes\default\css\style.min.css">
+    <Content Include="Themes\staypuft\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
     <Content Include="Web.config" />
@@ -179,9 +178,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Themes\default\_Layout.cshtml" />
+    <Content Include="Themes\staypuft\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Posts\Detail.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />
@@ -190,16 +189,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\default\css\_staypuft.scss" />
+    <Content Include="Themes\staypuft\css\_staypuft.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\default\css\_underscore.scss" />
+    <Content Include="Themes\staypuft\css\_underscore.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\default\css\_normalize.scss" />
+    <Content Include="Themes\staypuft\css\_normalize.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\default\css\style.scss" />
+    <Content Include="Themes\staypuft\css\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compilerconfig.json" />
@@ -207,6 +206,10 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Themes\Web.config" />
+    <Content Include="Themes\staypuft\_Post.cshtml" />
+    <Content Include="Themes\staypuft\_Index.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Themes\staypuft\_Page.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

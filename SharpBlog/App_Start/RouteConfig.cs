@@ -10,9 +10,15 @@ namespace SharpBlog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "PostSingle",
+                name: "Post",
                 url: "posts/{slug}",
-                defaults: new { controller = "Posts", action = "Detail" }
+                defaults: new { controller = "Home", action = "Post" }
+            );
+
+            routes.MapRoute(
+                name: "Page",
+                url: "{slug}",
+                defaults: new { controller = "Home", action = "Page" }
             );
 
             routes.MapRoute(

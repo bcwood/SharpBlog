@@ -1,0 +1,6 @@
+﻿@model SharpBlog.Models.Post
+@{
+    ViewBag.Title = Model.Title;
+    Page.Post = Model;
+    @RenderPage("~/Themes/staypuft/_Post.cshtml")
+}
