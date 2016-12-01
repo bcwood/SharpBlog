@@ -686,8 +686,8 @@ a:active {
 --------------------------------------------------------------*/
 .clear:before,
 .clear:after,
-.entry-content:before,
-.entry-content:after,
+.post-content:before,
+.post-content:after,
 .comment-content:before,
 .comment-content:after,
 .site-header:before,
@@ -702,7 +702,7 @@ a:active {
 }
 
 .clear:after,
-.entry-content:after,
+.post-content:after,
 .comment-content:after,
 .site-header:after,
 .site-content:after,
@@ -761,7 +761,7 @@ a:active {
 
 /*
 .page-content,
-.entry-content,
+.post-content,
 .entry-summary {
 	margin: 1.5em 0 0;
 }
@@ -775,8 +775,8 @@ a:active {
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
+.blog .format-aside .post-title,
+.archive .format-aside .post-title {
 	display: none;
 }
 
@@ -865,7 +865,7 @@ a:active {
 # Media
 --------------------------------------------------------------*/
 .page-content .wp-smiley,
-.entry-content .wp-smiley,
+.post-content .wp-smiley,
 .comment-content .wp-smiley {
 	border: none;
 	margin-bottom: 0;

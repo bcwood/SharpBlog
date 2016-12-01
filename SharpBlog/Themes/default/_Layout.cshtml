@@ -9,12 +9,11 @@
     <link rel="stylesheet" href="@Url.Content("~/Themes/default/css/style.min.css")"/>
 </head>
 <body>
-    <div id="secondary">
-        <div id="secondary-content" class="inner widget-area" role="complementary">
+    <div id="sidebar">
+        <div id="sidebar-content" class="inner widget-area" role="complementary">
 
             <header id="masthead" class="site-header" role="banner">
                 <div class="site-branding">
-
                     <a class="site-logo" href="https://bcwood.me/" rel="home">
                         <img src="//bcwood.me/wp-content/uploads/2015/12/cropped-brandon.jpg" width="128" height="128" alt="Brandon Wood">
                     </a>
@@ -23,14 +22,13 @@
                 </div><!-- .site-branding -->
             </header><!-- #masthead -->
             
-            <aside class="widget search">
+            <div class="widget search">
                 <form id="searchform" method="get" action="//bcwood.me/">
                     <input type="text" name="s" id="s" placeholder="Search" />
                 </form>
-            </aside>
+            </div>
 
-
-            <aside class="widget social-icons">
+            <div class="widget social-icons">
                 <ul>
                     <li class="subscribe">
                         <a href="http://bcwood.me/feed">
@@ -63,7 +61,7 @@
                         </a>
                     </li>
                 </ul>
-            </aside>
+            </div>
 
             <footer id="colophon" class="site-footer" role="contentinfo">
                 <div class="site-info">
@@ -76,14 +74,14 @@
                     </section>*@
                 </div><!-- .site-info -->
             </footer><!-- #colophon -->
-        </div><!-- #secondary-content -->
-    </div><!-- #secondary -->
+        </div><!-- #sidebar-content -->
+    </div><!-- #sidebar -->
 
-    <main id="main" class="site-main" role="main">
+    <div id="main" class="site-main" role="main">
         <div class="site-content">
             @RenderBody()
         </div><!-- .site-content -->
-    </main>
+    </div>
 
     @RenderSection("scripts", required: false)
 </body>
