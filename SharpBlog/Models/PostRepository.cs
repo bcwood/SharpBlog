@@ -31,11 +31,11 @@ namespace SharpBlog.Models
             return page.IsActive ? page : null;
         }
 
-        public List<Post> GetPages()
+        public List<Post> GetPagesInMenu()
         {
             var pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
 
-            return pages.Where(p => p.IsActive && p.IncludeInNav)
+            return pages.Where(p => p.IsActive && p.IncludeInMenu)
                         .OrderBy(p => p.Order)
                         .ToList();
         }

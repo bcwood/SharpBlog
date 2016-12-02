@@ -14,7 +14,7 @@ namespace SharpBlog.Models
         public int Order { get; set; } = -1;
 
         public bool IsActive => IsPublished && Date <= DateTime.Now;
-        public bool IncludeInNav => Order >= 0;
+        public bool IncludeInMenu => Order >= 0;
 
         public Post()
         {
