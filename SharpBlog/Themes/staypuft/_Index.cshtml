@@ -10,7 +10,7 @@
             <h2 class="post-title">@Html.RouteLink(post.Title, "Post", new { slug = post.Slug }, new { rel = "bookmark" })</h2>
             <div class="post-meta">
                 <i class="fa fa-calendar"></i> <span class="posted-on"><time class="post-date published" datetime="@post.Date.ToString()">@post.Date.ToString("MMMM dd, yyyy")</time></span>
-                <br /><i class="fa fa-tag"></i> <span class="tags-links">@Html.Raw(string.Join(" &middot; ", post.Tags))</span>
+                <br /><i class="fa fa-tag"></i> <span class="tags-links">@Helpers.RenderTagLinks(post.Tags, " &middot; ")</span>
             </div><!-- .post-meta -->
         </header><!-- .post-header -->
 
