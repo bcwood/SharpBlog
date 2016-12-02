@@ -10,8 +10,9 @@ namespace SharpBlog.Models
         public string Body { get; set; }
         public DateTime Date { get; set; }
         public List<string> Tags { get; set; }
+        public bool IsPublished { get; set; } = true;
 
-        public bool IsPublished => Date <= DateTime.Now;
+        public bool IsActive => IsPublished && Date <= DateTime.Now;
 
         public Post()
         {

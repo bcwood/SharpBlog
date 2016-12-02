@@ -31,6 +31,9 @@ namespace SharpBlog.Parsers
                     case "tags":
                         post.Tags = value.Split(',').Select(p => p.Trim()).ToList();
                         break;
+                    case "published":
+                        post.IsPublished = bool.Parse(value);
+                        break;
                 }
             }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using SharpBlog.Parsers;
 
@@ -8,22 +9,32 @@ namespace SharpBlog.Models
     {
         public Post GetPost(string slug)
         {
-            return MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Posts/{slug}.md"));
+            var post = MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Posts/{slug}.md"));
+
+            return post.IsActive ? post : null;
         }
 
         public List<Post> GetPosts()
         {
-            return MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+            var posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+
+            return posts.Where(p => p.IsActive)
+                        .OrderByDescending(p => p.Date)
+                        .ToList();
         }
 
         public Post GetPage(string slug)
         {
-            return MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Pages/{slug}.md"));
+            var page = MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Pages/{slug}.md"));
+
+            return page.IsActive ? page : null;
         }
 
         public List<Post> GetPages()
         {
-            return MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
+            var pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
+
+            return pages.Where(p => p.IsActive).ToList();
         }
     }
 }
