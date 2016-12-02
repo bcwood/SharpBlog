@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using SharpBlog.Models;
+using CommonMark;
 
 namespace SharpBlog.Parsers
 {
@@ -23,6 +24,9 @@ namespace SharpBlog.Parsers
 
         public static Post ParseFile(string path)
         {
+            if (!File.Exists(path))
+                return null;
+
             var fileInfo = new FileInfo(path);
 
             using (var reader = fileInfo.OpenText())
@@ -30,7 +34,7 @@ namespace SharpBlog.Parsers
                 string content = reader.ReadToEnd();
 
                 Post post = ParsePost(content);
-                post.Slug = fileInfo.Name.Substring(0, fileInfo.Name.LastIndexOf("."));
+                post.Slug = Path.GetFileNameWithoutExtension(fileInfo.Name);
 
                 return post;
             }
@@ -45,7 +49,7 @@ namespace SharpBlog.Parsers
             string body = content.Substring(yamlEnd + YAML_DELIMITER.Length);
 
             Post post = YamlParser.ParsePostHeader(yaml);
-            post.Body = CommonMark.CommonMarkConverter.Convert(body);
+            post.Body = CommonMarkConverter.Convert(body);
             
             return post;
         }
