@@ -34,6 +34,9 @@ namespace SharpBlog.Parsers
                     case "published":
                         post.IsPublished = bool.Parse(value);
                         break;
+                    case "order":
+                        post.Order = int.Parse(value);
+                        break;
                 }
             }
 

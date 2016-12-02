@@ -11,8 +11,10 @@ namespace SharpBlog.Models
         public DateTime Date { get; set; }
         public List<string> Tags { get; set; }
         public bool IsPublished { get; set; } = true;
+        public int Order { get; set; } = -1;
 
         public bool IsActive => IsPublished && Date <= DateTime.Now;
+        public bool IncludeInNav => Order >= 0;
 
         public Post()
         {

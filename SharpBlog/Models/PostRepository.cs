@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls.Expressions;
 using SharpBlog.Parsers;
 
 namespace SharpBlog.Models
@@ -34,7 +35,9 @@ namespace SharpBlog.Models
         {
             var pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
 
-            return pages.Where(p => p.IsActive).ToList();
+            return pages.Where(p => p.IsActive && p.IncludeInNav)
+                        .OrderBy(p => p.Order)
+                        .ToList();
         }
     }
 }
