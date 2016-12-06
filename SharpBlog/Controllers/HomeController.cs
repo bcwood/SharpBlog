@@ -19,6 +19,12 @@ namespace SharpBlog.Controllers
             return View(post);
         }
 
+        public ActionResult Tag(string slug)
+        {
+            Post post = repo.GetPostsTagged(slug);
+            return View(post);
+        }
+
         public ActionResult Page(string slug)
         {
             Post page = repo.GetPage(slug);

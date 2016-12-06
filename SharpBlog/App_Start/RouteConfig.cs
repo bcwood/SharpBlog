@@ -16,6 +16,12 @@ namespace SharpBlog
             );
 
             routes.MapRoute(
+                name: "Tag",
+                url: "tag/{slug}",
+                defaults: new { controller = "Home", action = "Tag" }
+            );
+
+            routes.MapRoute(
                 name: "Page",
                 url: "{slug}",
                 defaults: new { controller = "Home", action = "Page" }
