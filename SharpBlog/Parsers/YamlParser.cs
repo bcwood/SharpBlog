@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SharpBlog.Models;
 
@@ -29,7 +30,11 @@ namespace SharpBlog.Parsers
                         post.Date = DateTime.Parse(value);
                         break;
                     case "tags":
-                        post.Tags = value.Split(',').Select(p => p.Trim()).ToList();
+                        var tags = value.Split(',').Select(p => p.Trim()).ToList();
+                        foreach (string tag in tags)
+                        {
+                            post.Tags.Add(new Tag(tag));
+                        }
                         break;
                     case "published":
                         post.IsPublished = bool.Parse(value);

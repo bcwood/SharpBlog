@@ -24,11 +24,11 @@ namespace SharpBlog.Models
                         .ToList();
         }
 
-        public List<Post> GetPostsTagged(string tag)
+        public List<Post> GetPostsTagged(string tagSlug)
         {
             var posts = GetPosts();
 
-            return posts.Where(p => p.Tags.Contains(tag) && p.IsActive)
+            return posts.Where(p => p.Tags.Any(t => t.Slug == tagSlug) && p.IsActive)
                         .OrderByDescending(p => p.Date)
                         .ToList();
         }

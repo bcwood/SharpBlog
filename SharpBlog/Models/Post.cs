@@ -10,7 +10,7 @@ namespace SharpBlog.Models
         public string Slug { get; set; }
         public string Body { get; set; }
         public DateTime Date { get; set; }
-        public List<string> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
         public bool IsPublished { get; set; } = true;
         public int Order { get; set; } = -1;
 
@@ -35,7 +35,7 @@ namespace SharpBlog.Models
 
         public Post()
         {
-            Tags = new List<string>();
+            Tags = new List<Tag>();
         }
     }
 }

@@ -157,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PostRepository.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Parsers\MarkdownParser.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Parsers\YamlParser.cs" />

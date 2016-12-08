@@ -1,16 +1,16 @@
 ﻿@using System.Web.Mvc
+@using SharpBlog.Models
 
-@helper RenderTagLinks(List<string> tags, string separator)
+@helper RenderTagLinks(List<Tag> tags, string separator)
 {
     var Url = ((WebViewPage) PageContext.Page).Url;
     var Html = ((WebViewPage) PageContext.Page).Html;
     var tagLinks = new List<string>();
 
-    foreach (string tag in tags)
+    foreach (Tag tag in tags)
     {
-        string slug = tag.ToLower().Replace(" ", "-");
-        string url = Url.RouteUrl("Tag", new { slug });
-        tagLinks.Add($"<a href='{url}'>{tag}</a>");
+        string url = Url.RouteUrl("Tag", new { slug = tag.Slug });
+        tagLinks.Add($"<a href='{url}'>{tag.Name}</a>");
     }
     
     @Html.Raw(string.Join(separator, tagLinks))
