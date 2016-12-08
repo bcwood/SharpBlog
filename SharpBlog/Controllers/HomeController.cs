@@ -13,12 +13,14 @@ namespace SharpBlog.Controllers
             return View(posts);
         }
 
+        [Route("posts/{slug}", Name = "Post")]
         public ActionResult Post(string slug)
         {
             Post post = repo.GetPost(slug);
             return View(post);
         }
 
+        [Route("tag/{slug}", Name = "Tag")]
         public ActionResult Tag(string slug)
         {
             ViewBag.Tag = slug;
@@ -26,6 +28,7 @@ namespace SharpBlog.Controllers
             return View(posts);
         }
 
+        [Route("{slug}", Name = "Page")]
         public ActionResult Page(string slug)
         {
             Post page = repo.GetPage(slug);

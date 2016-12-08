@@ -2,14 +2,16 @@
 
 @helper RenderTagLinks(List<string> tags, string separator)
 {
+    var Url = ((WebViewPage) PageContext.Page).Url;
+    var Html = ((WebViewPage) PageContext.Page).Html;
     var tagLinks = new List<string>();
 
     foreach (string tag in tags)
     {
         string slug = tag.ToLower().Replace(" ", "-");
-        tagLinks.Add($"<a href='/tag/{slug}'>{tag}</a>");
+        string url = Url.RouteUrl("Tag", new { slug });
+        tagLinks.Add($"<a href='{url}'>{tag}</a>");
     }
-
-    var Html = ((WebViewPage) PageContext.Page).Html;
+    
     @Html.Raw(string.Join(separator, tagLinks))
 }
