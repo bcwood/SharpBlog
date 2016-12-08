@@ -1,0 +1,30 @@
+﻿@using SharpBlog.Models
+@{
+    List<Post> posts = Page.Posts;
+}
+
+@if (!posts.Any())
+{
+    <p>No posts were found.</p>
+}
+
+@foreach (Post post in posts)
+{
+    <div class="post">
+        <header class="post-header">
+            <h2 class="post-title">@Html.RouteLink(post.Title, "Post", new { slug = post.Slug }, new { rel = "bookmark" })</h2>
+            <div class="post-meta">
+                <i class="fa fa-calendar"></i> <span class="posted-on"><time class="post-date published" datetime="@post.Date.ToString()">@post.Date.ToString("MMMM dd, yyyy")</time></span>
+                <br /><i class="fa fa-tag"></i> <span class="tags-links">@Helpers.RenderTagLinks(post.Tags, " &middot; ")</span>
+            </div><!-- .post-meta -->
+        </header><!-- .post-header -->
+
+        <div class="post-content">
+            @Html.Raw(post.Excerpt)
+        </div><!-- .post-content -->
+
+        <footer class="post-footer">
+            <i class="fa fa-comment-o"></i> <span class="comments-link"><a href="#respond">0 Comments</a></span>
+        </footer><!-- .post-footer -->
+    </div><!-- .post -->
+}

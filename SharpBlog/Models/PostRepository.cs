@@ -24,6 +24,15 @@ namespace SharpBlog.Models
                         .ToList();
         }
 
+        public List<Post> GetPostsTagged(string tag)
+        {
+            var posts = GetPosts();
+
+            return posts.Where(p => p.Tags.Contains(tag) && p.IsActive)
+                        .OrderByDescending(p => p.Date)
+                        .ToList();
+        }
+
         public Post GetPage(string slug)
         {
             var page = MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Pages/{slug}.md"));

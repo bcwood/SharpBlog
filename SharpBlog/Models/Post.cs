@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace SharpBlog.Models
 {
@@ -15,6 +16,22 @@ namespace SharpBlog.Models
 
         public bool IsActive => IsPublished && Date <= DateTime.Now;
         public bool IncludeInMenu => Order >= 0;
+
+        public string Excerpt
+        {
+            get
+            {
+                // strip HTML tags
+                string excerpt = Regex.Replace(Body, "<.*?>", string.Empty);
+
+                // truncate
+                const int EXCERPT_LENGTH = 200;
+                if (excerpt.Length > EXCERPT_LENGTH)
+                    excerpt = excerpt.Substring(0, EXCERPT_LENGTH) + "...";
+
+                return excerpt;
+            }
+        }
 
         public Post()
         {

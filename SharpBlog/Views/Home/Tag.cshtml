@@ -1,7 +1,10 @@
 ﻿@using SharpBlog.Models
 @model List<Post>
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Posts tagged " + ViewBag.Tag;
     Page.Posts = Model;
-    @RenderPage("~/Themes/staypuft/_Index.cshtml")
 }
+
+<h1>@ViewBag.Title</h1>
+
+@RenderPage("~/Themes/staypuft/_Archive.cshtml")
