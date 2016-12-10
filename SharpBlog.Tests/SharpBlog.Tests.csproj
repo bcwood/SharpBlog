@@ -44,7 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="YamlParserTests.cs" />
+    <Compile Include="Models\TagTests.cs" />
+    <Compile Include="Parsers\YamlParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

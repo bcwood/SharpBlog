@@ -3,7 +3,7 @@ using NUnit.Framework;
 using SharpBlog.Models;
 using SharpBlog.Parsers;
 
-namespace SharpBlog.Tests
+namespace SharpBlog.Tests.Parsers
 {
     [TestFixture]
     public class YamlParserTests
