@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using SharpBlog.Models;
 using SharpBlog.Parsers;
