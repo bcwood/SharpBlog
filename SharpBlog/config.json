@@ -1,15 +1,15 @@
 ﻿{
-    "site_title": "SharpBlog",
-    "site_description": "Markdown driven blog written in C#",
-    "site_url": "http://sharpblog.com",
+    "site_title": "Brandon Wood",
+    "site_description": "",
+    "site_url": "https://bcwood.me",
     "site_logo": "//bcwood.me/wp-content/uploads/2015/12/cropped-brandon.jpg",
-    
+
     "theme": "staypuft",
 
     "links": [
         {
             "title": "Subscribe",
-            "url": "http://bcwood.me/feed",
+            "url": "https://bcwood.me/feed",
             "fontawesome_icon": "rss"
         },
         {
