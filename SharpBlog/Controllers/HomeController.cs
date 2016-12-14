@@ -17,7 +17,11 @@ namespace SharpBlog.Controllers
         public ActionResult Post(string slug)
         {
             Post post = repo.GetPost(slug);
-            return View(post);
+
+            if (post != null)
+                return View(post);
+            else
+                return View("404");
         }
 
         [Route("tag/{slug}", Name = "Tag")]
@@ -32,7 +36,11 @@ namespace SharpBlog.Controllers
         public ActionResult Page(string slug)
         {
             Post page = repo.GetPage(slug);
-            return View(page);
+
+            if (page != null)
+                return View(page);
+            else
+                return View("404");
         }
     }
 }

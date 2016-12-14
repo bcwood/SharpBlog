@@ -218,6 +218,8 @@
     <Content Include="Views\Home\Tag.cshtml" />
     <Content Include="Themes\staypuft\_Archive.cshtml" />
     <Content Include="config.json" />
+    <Content Include="Views\Home\404.cshtml" />
+    <Content Include="Themes\staypuft\_404.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
