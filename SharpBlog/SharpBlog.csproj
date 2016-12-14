@@ -156,6 +156,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Config.cs" />
+    <Compile Include="Models\Cache.cs" />
     <Compile Include="Models\PostRepository.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Parsers\MarkdownParser.cs" />

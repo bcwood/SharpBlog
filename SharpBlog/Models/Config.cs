@@ -23,32 +23,29 @@ namespace SharpBlog.Models
 
         public List<Link> Links { get; set; }
 
-        private Config()
+        public class Link
         {
-            
+            public string Title { get; set; }
+            public string Url { get; set; }
+
+            [JsonProperty("fontawesome_icon")]
+            public string FontAwesomeIcon { get; set; }
         }
+
+        private Config() { }
 
         public static Config Settings
         {
             get
             {
-                if (HttpContext.Current.Application["CONFIGURATION"] == null)
+                if (Cache.Configuration == null)
                 {
                     string configJson = File.ReadAllText(HttpContext.Current.Server.MapPath("~/config.json"));
-                    HttpContext.Current.Application["CONFIGURATION"] = JsonConvert.DeserializeObject<Config>(configJson);
+                    Cache.Configuration = JsonConvert.DeserializeObject<Config>(configJson);
                 }
 
-                return HttpContext.Current.Application["CONFIGURATION"] as Config;
+                return Cache.Configuration;
             }
         }
-    }
-
-    public class Link
-    {
-        public string Title { get; set; }
-        public string Url { get; set; }
-
-        [JsonProperty("fontawesome_icon")]
-        public string FontAwesomeIcon { get; set; }
     }
 }

@@ -1,52 +1,58 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI.WebControls.Expressions;
 using SharpBlog.Parsers;
 
 namespace SharpBlog.Models
 {
     public class PostRepository
     {
-        public Post GetPost(string slug)
-        {
-            var post = MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Posts/{slug}.md"));
-
-            return post.IsActive ? post : null;
-        }
-
         public List<Post> GetPosts()
         {
-            var posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+            if (Cache.Posts == null)
+            {
+                Cache.Posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+            }
 
-            return posts.Where(p => p.IsActive)
-                        .OrderByDescending(p => p.Date)
-                        .ToList();
+            return Cache.Posts.Where(p => p.IsActive)
+                              .OrderByDescending(p => p.Date)
+                              .ToList();
+        }
+
+        public Post GetPost(string slug)
+        {
+            return GetPosts().SingleOrDefault(p => p.Slug == slug && p.IsActive);
         }
 
         public List<Post> GetPostsTagged(string tagSlug)
         {
-            var posts = GetPosts();
+            return GetPosts().Where(p => p.Tags.Any(t => t.Slug == tagSlug) && p.IsActive)
+                             .OrderByDescending(p => p.Date)
+                             .ToList();
+        }
 
-            return posts.Where(p => p.Tags.Any(t => t.Slug == tagSlug) && p.IsActive)
-                        .OrderByDescending(p => p.Date)
-                        .ToList();
+        public List<Post> GetPages()
+        {
+            if (Cache.Pages == null)
+            {
+                Cache.Pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
+            }
+
+            return Cache.Pages.Where(p => p.IsActive && p.IncludeInMenu)
+                              .OrderBy(p => p.Order)
+                              .ToList();
         }
 
         public Post GetPage(string slug)
         {
-            var page = MarkdownParser.ParseFile(HttpContext.Current.Server.MapPath($"~/Content/Pages/{slug}.md"));
-
-            return page.IsActive ? page : null;
+            return GetPages().SingleOrDefault(p => p.Slug == slug && p.IsActive);
         }
 
         public List<Post> GetPagesInMenu()
         {
-            var pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
-
-            return pages.Where(p => p.IsActive && p.IncludeInMenu)
-                        .OrderBy(p => p.Order)
-                        .ToList();
+            return GetPages().Where(p => p.IsActive && p.IncludeInMenu)
+                             .OrderBy(p => p.Order)
+                             .ToList();
         }
     }
 }
