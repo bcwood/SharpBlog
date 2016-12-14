@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Config.cs" />
     <Compile Include="Models\PostRepository.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Parsers\MarkdownParser.cs" />
@@ -215,6 +216,7 @@
     <Content Include="Content\Pages\contact.md" />
     <Content Include="Views\Home\Tag.cshtml" />
     <Content Include="Themes\staypuft\_Archive.cshtml" />
+    <Content Include="config.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

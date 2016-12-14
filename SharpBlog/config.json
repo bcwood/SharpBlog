@@ -1,0 +1,41 @@
+﻿{
+    "site_title": "SharpBlog",
+    "site_description": "Markdown driven blog written in C#",
+    "site_url": "http://sharpblog.com",
+    "site_logo": "//bcwood.me/wp-content/uploads/2015/12/cropped-brandon.jpg",
+    
+    "theme": "staypuft",
+
+    "links": [
+        {
+            "title": "Subscribe",
+            "url": "http://bcwood.me/feed",
+            "fontawesome_icon": "rss"
+        },
+        {
+            "title": "GitHub",
+            "url": "https://github.com/bcwood",
+            "fontawesome_icon": "github"
+        },
+        {
+            "title": "Twitter",
+            "url": "https://twitter.com/iambcwood",
+            "fontawesome_icon": "twitter"
+        },
+        {
+            "title": "Facebook",
+            "url": "https://facebook.com/bcwood",
+            "fontawesome_icon": "facebook"
+        },
+        {
+            "title": "LinkedIn",
+            "url": "https://linkedin.com/in/bcwood",
+            "fontawesome_icon": "linkedin"
+        },
+        {
+            "title": "Contact",
+            "url": "mailto:hello@bcwood.me",
+            "fontawesome_icon": "envelope"
+        }
+    ]
+}
