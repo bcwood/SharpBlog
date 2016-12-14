@@ -38,19 +38,18 @@ namespace SharpBlog.Models
                 Cache.Pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
             }
 
-            return Cache.Pages.Where(p => p.IsActive && p.IncludeInMenu)
-                              .OrderBy(p => p.Order)
+            return Cache.Pages.Where(p => p.IsPublished)
                               .ToList();
         }
 
         public Post GetPage(string slug)
         {
-            return GetPages().SingleOrDefault(p => p.Slug == slug && p.IsActive);
+            return GetPages().SingleOrDefault(p => p.Slug == slug);
         }
 
         public List<Post> GetPagesInMenu()
         {
-            return GetPages().Where(p => p.IsActive && p.IncludeInMenu)
+            return GetPages().Where(p => p.IncludeInMenu)
                              .OrderBy(p => p.Order)
                              .ToList();
         }
