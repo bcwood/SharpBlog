@@ -7,7 +7,7 @@ namespace SharpBlog.Models
 {
     public class PostRepository
     {
-        public List<Post> GetPosts()
+        public IEnumerable<Post> GetPosts()
         {
             if (Cache.Posts == null)
             {
@@ -17,13 +17,12 @@ namespace SharpBlog.Models
             }
 
             return Cache.Posts.Where(p => p.IsActive)
-                              .OrderByDescending(p => p.Date)
-                              .ToList();
+                              .OrderByDescending(p => p.Date);
         }
 
         public Post GetPost(string slug)
         {
-            return GetPosts().SingleOrDefault(p => p.Slug == slug && p.IsActive);
+            return GetPosts().SingleOrDefault(p => p.Slug == slug);
         }
 
         public List<Post> SearchPosts(string query)
@@ -38,15 +37,14 @@ namespace SharpBlog.Models
                              .ToList();
         }
 
-        public List<Post> GetPages()
+        public IEnumerable<Post> GetPages()
         {
             if (Cache.Pages == null)
             {
                 Cache.Pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
             }
 
-            return Cache.Pages.Where(p => p.IsPublished)
-                              .ToList();
+            return Cache.Pages.Where(p => p.IsPublished);
         }
 
         public Post GetPage(string slug)
