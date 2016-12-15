@@ -11,7 +11,9 @@ namespace SharpBlog.Models
         {
             if (Cache.Posts == null)
             {
-                Cache.Posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+                var posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
+                SearchProvider.AddPostsToIndex(posts);
+                Cache.Posts = posts;
             }
 
             return Cache.Posts.Where(p => p.IsActive)
@@ -26,9 +28,7 @@ namespace SharpBlog.Models
 
         public List<Post> SearchPosts(string query)
         {
-            return GetPosts().Where(p => !string.IsNullOrWhiteSpace(query) && (p.Title.Contains(query) || p.Body.Contains(query)))
-                             .OrderByDescending(p => p.Date)
-                             .ToList();
+            return SearchProvider.Search(query);
         }
 
         public List<Post> GetPostsTagged(string tagSlug)
