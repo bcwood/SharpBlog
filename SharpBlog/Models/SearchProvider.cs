@@ -48,7 +48,7 @@ namespace SharpBlog.Models
             }
         }
 
-        public static void AddPostsToIndex(List<Post> posts)
+        public static void AddToIndex(List<Post> posts)
         {
             using (var analyzer = new StandardAnalyzer(Version.LUCENE_30))
             {

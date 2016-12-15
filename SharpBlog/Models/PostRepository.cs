@@ -12,7 +12,7 @@ namespace SharpBlog.Models
             if (Cache.Posts == null)
             {
                 var posts = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Posts"));
-                SearchProvider.AddPostsToIndex(posts);
+                SearchProvider.AddToIndex(posts);
                 Cache.Posts = posts;
             }
 
@@ -41,7 +41,9 @@ namespace SharpBlog.Models
         {
             if (Cache.Pages == null)
             {
-                Cache.Pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
+                var pages = MarkdownParser.ParseFiles(HttpContext.Current.Server.MapPath("~/Content/Pages"));
+                SearchProvider.AddToIndex(pages);
+                Cache.Pages = pages;
             }
 
             return Cache.Pages.Where(p => p.IsPublished);
