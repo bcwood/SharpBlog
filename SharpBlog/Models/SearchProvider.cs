@@ -13,23 +13,36 @@ namespace SharpBlog.Models
 {
     public static class SearchProvider
     {
-        private static string _luceneDir = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "_luceneIndex");
+        //private static string _luceneDir = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "_luceneIndex");
 
-        private static FSDirectory _directory;
+        //private static FSDirectory _directory;
 
-        private static FSDirectory Directory
+        //private static FSDirectory Directory
+        //{
+        //    get
+        //    {
+        //        if (_directory == null)
+        //            _directory = FSDirectory.Open(new DirectoryInfo(_luceneDir));
+
+        //        if (IndexWriter.IsLocked(_directory))
+        //            IndexWriter.Unlock(_directory);
+
+        //        var lockFilePath = Path.Combine(_luceneDir, "write.lock");
+        //        if (File.Exists(lockFilePath))
+        //            File.Delete(lockFilePath);
+
+        //        return _directory;
+        //    }
+        //}
+
+        private static RAMDirectory _directory;
+
+        private static RAMDirectory Directory
         {
             get
             {
                 if (_directory == null)
-                    _directory = FSDirectory.Open(new DirectoryInfo(_luceneDir));
-
-                if (IndexWriter.IsLocked(_directory))
-                    IndexWriter.Unlock(_directory);
-
-                var lockFilePath = Path.Combine(_luceneDir, "write.lock");
-                if (File.Exists(lockFilePath))
-                    File.Delete(lockFilePath);
+                    _directory = new RAMDirectory();
 
                 return _directory;
             }
