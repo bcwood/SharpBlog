@@ -1,0 +1,8 @@
+﻿@using SharpBlog.Models
+@model List<Post>
+@{
+    ViewBag.Title = $"Search results for \"{ViewBag.Query}\"";
+    Page.Posts = Model;
+}
+
+@RenderPage("~/Themes/staypuft/_Archive.cshtml")

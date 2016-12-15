@@ -220,6 +220,7 @@
     <Content Include="config.json" />
     <Content Include="Views\Home\404.cshtml" />
     <Content Include="Themes\staypuft\_404.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

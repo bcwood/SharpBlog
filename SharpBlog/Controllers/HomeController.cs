@@ -32,6 +32,14 @@ namespace SharpBlog.Controllers
             return View(posts);
         }
 
+        [Route("search", Name = "Search")]
+        public ActionResult Search(string q)
+        {
+            ViewBag.Query = q;
+            var posts = repo.SearchPosts(q);
+            return View("Search", posts);
+        }
+
         [Route("{slug}", Name = "Page")]
         public ActionResult Page(string slug)
         {

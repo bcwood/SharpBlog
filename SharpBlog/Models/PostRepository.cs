@@ -24,9 +24,16 @@ namespace SharpBlog.Models
             return GetPosts().SingleOrDefault(p => p.Slug == slug && p.IsActive);
         }
 
+        public List<Post> SearchPosts(string query)
+        {
+            return GetPosts().Where(p => !string.IsNullOrWhiteSpace(query) && (p.Title.Contains(query) || p.Body.Contains(query)))
+                             .OrderByDescending(p => p.Date)
+                             .ToList();
+        }
+
         public List<Post> GetPostsTagged(string tagSlug)
         {
-            return GetPosts().Where(p => p.Tags.Any(t => t.Slug == tagSlug) && p.IsActive)
+            return GetPosts().Where(p => p.Tags.Any(t => t.Slug == tagSlug))
                              .OrderByDescending(p => p.Date)
                              .ToList();
         }
