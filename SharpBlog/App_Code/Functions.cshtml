@@ -1,0 +1,56 @@
+﻿@using SharpBlog.Models
+@functions
+{
+    public static bool HasNextPage()
+    {
+        int totalPages = (int)Math.Ceiling((double)Page.TotalPosts / (double)Config.Settings.PostsPerPage);
+
+        return Page.PageNumber < totalPages;
+    }
+
+    public static string GetNextPageUrl()
+    {
+        if (HasNextPage())
+        {
+            var url = Request.Url.AbsolutePath;
+            if (Page.PageNumber == 1)
+            {
+                url += $"/page/{Page.PageNumber + 1}{Request.Url.Query}";
+            }
+            else
+            {
+                url = url.Replace($"/page/{Page.PageNumber}", $"/page/{Page.PageNumber + 1}{Request.Url.Query}");
+            }
+
+            url = url.Replace("//", "/"); // HACK
+            return url;
+        }
+
+        return null;
+    }
+
+    public static bool HasPrevPage()
+    {
+        return Page.PageNumber > 1;
+    }
+
+    public static string GetPrevPageUrl()
+    {
+        if (HasPrevPage())
+        {
+            var url = Request.Url.PathAndQuery;
+            if (Page.PageNumber == 2)
+            {
+                url = url.Replace($"page/{Page.PageNumber}", "");
+            }
+            else
+            {
+                url = url.Replace($"/page/{Page.PageNumber}", $"/page/{Page.PageNumber - 1}");
+            }
+
+            return url;
+        }
+
+        return null;
+    }
+}
