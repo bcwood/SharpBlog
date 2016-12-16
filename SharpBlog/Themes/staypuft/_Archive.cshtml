@@ -1,16 +1,18 @@
 ﻿@using SharpBlog.Models
 @{
-    List<Post> posts = Page.Posts;
+    PagedPosts paged = Page.Posts;
+    Page.PageNumber = paged.PageNumber;
+    Page.TotalPosts = paged.TotalPosts;
 }
 
 <h1>@ViewBag.Title</h1>
 
-@if (!posts.Any())
+@if (!paged.Posts.Any())
 {
     <p>No posts were found.</p>
 }
 
-@foreach (Post post in posts)
+@foreach (Post post in paged.Posts)
 {
     <div class="post">
         <header class="post-header">
@@ -38,3 +40,5 @@
         </footer><!-- .post-footer -->
     </div><!-- .post -->
 }
+
+@RenderPage("_Pagination.cshtml")

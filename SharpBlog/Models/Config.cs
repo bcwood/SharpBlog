@@ -19,7 +19,10 @@ namespace SharpBlog.Models
         [JsonProperty("site_logo")]
         public string SiteLogo { get; set; }
 
-        public string Theme { get; set; }
+        [JsonProperty("posts_per_page")]
+        public int PostsPerPage { get; set; } = 10;
+
+        public string Theme { get; set; } = "staypuft";
 
         public List<Link> Links { get; set; }
 

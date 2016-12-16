@@ -7,7 +7,7 @@ namespace SharpBlog.Models
 {
     public class PostRepository
     {
-        public IEnumerable<Post> GetPosts()
+        private IEnumerable<Post> GetPosts()
         {
             if (Cache.Posts == null)
             {
@@ -20,24 +20,29 @@ namespace SharpBlog.Models
                               .OrderByDescending(p => p.Date);
         }
 
+        public PagedPosts GetPostsPaged(int page)
+        {
+            return GetPosts().Paged(page, Config.Settings.PostsPerPage);
+        }
+
         public Post GetPost(string slug)
         {
             return GetPosts().SingleOrDefault(p => p.Slug == slug);
         }
 
-        public List<Post> SearchPosts(string query)
+        public PagedPosts SearchPosts(string query, int page)
         {
-            return SearchProvider.Search(query);
+            return SearchProvider.Search(query)
+                                 .Paged(page, Config.Settings.PostsPerPage);
         }
 
-        public List<Post> GetPostsTagged(string tagSlug)
+        public PagedPosts GetPostsTagged(string tagSlug, int page)
         {
             return GetPosts().Where(p => p.Tags.Any(t => t.Slug == tagSlug))
-                             .OrderByDescending(p => p.Date)
-                             .ToList();
+                             .Paged(page, Config.Settings.PostsPerPage);
         }
 
-        public IEnumerable<Post> GetPages()
+        private IEnumerable<Post> GetPages()
         {
             if (Cache.Pages == null)
             {

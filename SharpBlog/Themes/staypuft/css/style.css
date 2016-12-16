@@ -1459,49 +1459,42 @@ margin on the iframe, cause it breaks stuff. */
    9. Pagination - Tools to let you flick between pages
    ========================================================================== */
 /* The main wrapper for our pagination links */
-/*.pagination {
-    position: relative;
-    margin: 3rem 0px;
-    font-family: $font-stack;
-    font-size: 1.3rem;
-    color: #9EABB3;
-    text-align: center;
-    max-width: inherit;
-}
+.pagination {
+  position: relative;
+  padding-bottom: 4.0em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%; }
 
 .pagination a {
-    color: #9EABB3;
-    transition: all 0.2s ease;
-}*/
+  border: #999 2px solid;
+  border-radius: 30px;
+  color: #999;
+  padding: 5px 15px;
+  text-decoration: none;
+  transition: all 0.3s ease; }
+
+.pagination a:hover {
+  color: #222;
+  border-color: #222; }
+
 /* Push the previous/next links out to the left/right */
-/*.older-posts,
+.older-posts,
 .newer-posts {
-    position: absolute;
-    display: inline-block;
-    padding: 0 15px;
-    border: #EBF2F6 2px solid;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: border 0.3s ease;
-}
+  position: absolute;
+  display: inline-block; }
 
 .older-posts {
-    right: 0;
-}
+  right: 0; }
 
-.page-number {
+/*.page-number {
     display: inline-block;
     padding: 2px 0;
-}
-
-.newer-posts {
-    left: 0;
-}
-
-.older-posts:hover,
-.newer-posts:hover {
-    border-color: #9EABB3;
 }*/
+.newer-posts {
+  left: 0; }
+
 /* ==========================================================================
    10. Footer - The bottom of every page
    ========================================================================== */
@@ -1520,9 +1513,9 @@ margin on the iframe, cause it breaks stuff. */
 .site-footer a:hover {
   color: white; }
 
-.poweredby .fa {
-  font-size: 1.2rem; }
-
+/*.poweredby .fa {
+    font-size: 1.2rem;
+}*/
 /* The subscribe icon on the footer */
 /*
 .subscribe {

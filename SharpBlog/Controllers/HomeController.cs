@@ -7,9 +7,11 @@ namespace SharpBlog.Controllers
     {
         private PostRepository repo = new PostRepository();
 
-        public ActionResult Index()
+        [Route("")]
+        [Route("page/{pageNum}", Name = "PagedPosts")]
+        public ActionResult Index(int pageNum = 1)
         {
-            var posts = repo.GetPosts();
+            var posts = repo.GetPostsPaged(pageNum);
             return View(posts);
         }
 
@@ -25,19 +27,21 @@ namespace SharpBlog.Controllers
         }
 
         [Route("tag/{slug}", Name = "Tag")]
-        public ActionResult Tag(string slug)
+        [Route("tag/{slug}/page/{pageNum}", Name = "PagedTag")]
+        public ActionResult Tag(string slug, int pageNum = 1)
         {
             ViewBag.Tag = slug;
-            var posts = repo.GetPostsTagged(slug);
+            var posts = repo.GetPostsTagged(slug, pageNum);
             return View(posts);
         }
 
         [Route("search", Name = "Search")]
-        public ActionResult Search(string q)
+        [Route("search/page/{pageNum}", Name = "PagedSearch")]
+        public ActionResult Search(string q, int pageNum = 1)
         {
             ViewBag.Query = q;
-            var posts = repo.SearchPosts(q);
-            return View("Search", posts);
+            var posts = repo.SearchPosts(q, pageNum);
+            return View(posts);
         }
 
         [Route("{slug}", Name = "Page")]

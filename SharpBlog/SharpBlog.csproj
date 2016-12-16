@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Cache.cs" />
+    <Compile Include="Models\PagedPosts.cs" />
     <Compile Include="Models\PostRepository.cs" />
     <Compile Include="Models\SearchProvider.cs" />
     <Compile Include="Models\Tag.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Views\Home\404.cshtml" />
     <Content Include="Themes\staypuft\_404.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Themes\staypuft\_Pagination.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,6 +4,7 @@
     "site_url": "https://bcwood.me",
     "site_logo": "//bcwood.me/wp-content/uploads/2015/12/cropped-brandon.jpg",
 
+    "posts_per_page": 3,
     "theme": "staypuft",
 
     "links": [

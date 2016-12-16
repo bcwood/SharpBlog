@@ -1,9 +1,16 @@
 ﻿@using SharpBlog.Models
 @{
-    var posts = Page.Posts;
+    PagedPosts paged = Page.Posts;
+    Page.PageNumber = paged.PageNumber;
+    Page.TotalPosts = paged.TotalPosts;
 }
 
-@foreach (Post post in posts)
+@if (!paged.Posts.Any())
+{
+    <p>No posts were found.</p>
+}
+
+@foreach (Post post in paged.Posts)
 {
     <div class="post">
         <header class="post-header">
@@ -31,3 +38,5 @@
         </footer><!-- .post-footer -->
     </div><!-- .post -->
 }
+
+@RenderPage("_Pagination.cshtml")

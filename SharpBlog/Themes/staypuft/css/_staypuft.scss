@@ -1187,50 +1187,48 @@ margin on the iframe, cause it breaks stuff. */
    ========================================================================== */
 
 /* The main wrapper for our pagination links */
-/*.pagination {
+.pagination {
     position: relative;
-    margin: 3rem 0px;
-    font-family: $font-stack;
-    font-size: 1.3rem;
-    color: #9EABB3;
+    padding-bottom: 4.0em;
+	font-family: $font-stack;
+    font-size: 1.4rem;
     text-align: center;
-    max-width: inherit;
+    width: 100%;
 }
 
 .pagination a {
-    color: #9EABB3;
-    transition: all 0.2s ease;
-}*/
+    border: #999 2px solid;
+    border-radius: 30px;
+    color: #999;
+    padding: 5px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+    color: $hover-color;
+    border-color: $hover-color;
+}
 
 /* Push the previous/next links out to the left/right */
-/*.older-posts,
+.older-posts,
 .newer-posts {
     position: absolute;
-    display: inline-block;
-    padding: 0 15px;
-    border: #EBF2F6 2px solid;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: border 0.3s ease;
+    display: inline-block;    
 }
 
 .older-posts {
     right: 0;
 }
 
-.page-number {
+/*.page-number {
     display: inline-block;
     padding: 2px 0;
-}
+}*/
 
 .newer-posts {
     left: 0;
 }
-
-.older-posts:hover,
-.newer-posts:hover {
-    border-color: #9EABB3;
-}*/
 
 
 /* ==========================================================================
@@ -1255,9 +1253,9 @@ margin on the iframe, cause it breaks stuff. */
     color: white;
 }
 
-.poweredby .fa {
+/*.poweredby .fa {
     font-size: 1.2rem;
-}
+}*/
 
 /* The subscribe icon on the footer */
 /*
