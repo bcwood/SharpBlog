@@ -1,6 +1,6 @@
 ﻿[
-  {
-    "outputFile": "Themes/default/css/style.css",
-    "inputFile": "Themes/default/css/style.scss"
-  }
+    {
+        "outputFile": "Themes/staypuft/css/style.css",
+        "inputFile": "Themes/staypuft/css/style.scss"
+    }
 ]
